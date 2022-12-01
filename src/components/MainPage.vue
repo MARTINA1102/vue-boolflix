@@ -1,11 +1,13 @@
 <template>
   <div class="main_page">
     <h2 v-if="arrMovie.lenght">Movies</h2>
+    <font-awesome-icon icon="fa-solid fa-star" />
+    <font-awesome-icon icon="fa-regular fa-star" />
     <ul v-for="objMovie in arrMovie" :key="objMovie.id">
       <li><img :src = "`https://image.tmdb.org/t/p/w342${objMovie.poster_path}`" alt=""></li>
       <li>{{objMovie.title}}</li>
       <li>{{objMovie.original_title}}</li>
-      <li>{{objMovie.original_language}}</li>
+      <li><lang-flag :iso="`${objMovie.original_language}`"/></li>
       <li>{{objMovie.vote_average}}</li>
     </ul>
     <h2 v-if="arrSeries.length">Series</h2>
@@ -31,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .main_page{
-  height: 100vh;
+  height: 100%;
   background-color: gray;
   padding-top: 10rem;
 }
