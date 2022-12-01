@@ -15,7 +15,7 @@
       <li><img :src = "`https://image.tmdb.org/t/p/w342${objSerie.poster_path}`" alt=""></li>
       <li>{{objSerie.title}}</li>
       <li>{{objSerie.original_title}}</li>
-      <li>{{objSerie.original_language}}</li>
+      <li><lang-flag :iso="`${objSerie.original_language}`"/></li>
       <li>{{objSerie.vote_average}}</li>
     </ul>
   </div>
