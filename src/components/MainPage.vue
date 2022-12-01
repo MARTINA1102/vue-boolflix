@@ -2,6 +2,7 @@
   <div class="main_page">
     <h2 v-if="arrMovie.lenght">Movies</h2>
     <ul v-for="objMovie in arrMovie" :key="objMovie.id">
+      <li><img :src = "`https://image.tmdb.org/t/p/w342${objMovie.poster_path}`" alt=""></li>
       <li>{{objMovie.title}}</li>
       <li>{{objMovie.original_title}}</li>
       <li>{{objMovie.original_language}}</li>

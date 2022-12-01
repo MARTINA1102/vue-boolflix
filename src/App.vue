@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       baseApi: 'https://api.themoviedb.org/3',
-      apiKey: '07f8adb8a80647ce73267621c81dedf5',
+      apiKey: '2e41251ba6af8c59827f3c648b26408b',
       resultsLanguage: ' it-IT ',
       arrMovie: [],
       arrSeries: [],
