@@ -10,6 +10,7 @@
     </ul>
     <h2 v-if="arrSeries.length">Series</h2>
     <ul v-for="objSerie in arrSeries" :key="objSerie.id">
+      <li><img :src = "`https://image.tmdb.org/t/p/w342${objSerie.poster_path}`" alt=""></li>
       <li>{{objSerie.title}}</li>
       <li>{{objSerie.original_title}}</li>
       <li>{{objSerie.original_language}}</li>
