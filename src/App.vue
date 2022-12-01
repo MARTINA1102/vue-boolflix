@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderPage/>
-    <MainPage/>
+    <HeaderPage @queryChange = " search "/>
+    <MainPage :arr-movie = " arrMovie "/>
   </div>
 </template>
 
@@ -18,19 +18,33 @@ export default {
   },
   data() {
     return {
-      arrFilms: null,
-      sString: '',
-      urlApi: 'https://api.themoviedb.org/3/search/movie?api_key=2e41251ba6af8c59827f3c648b26408b&query=string',
+      baseApi: 'https://api.themoviedb.org/3',
+      apiKey: '07f8adb8a80647ce73267621c81dedf5',
+      resultsLanguage: ' it-IT ',
+      arrMovie: [],
     };
   },
-  created() {
-    axios.get(this.urlApi)
-      .then((axiosResponse) => {
-        console.log(axiosResponse);
-        this.arrFilms = axiosResponse.data.results;
-      });
+  methods: {
+    search(queryString) {
+      // chiamata axios all'url
+      // base + end point + query string
+      axios.get(`${this.baseApi}/search/movie`, {
+        // parametri delle variabili per le richieste dell'URL
+        params: {
+          api_key: this.apiKey,
+          query: queryString,
+          language: this.resultsLanguage,
+        },
+      })
+      // risposta di axios
+        .then((responseAxios) => {
+          this.arrMovie = responseAxios.data.results;
+          console.log(this.arrMovie);
+        });
+    },
   },
 };
+
 </script>
 
 <style lang="scss">

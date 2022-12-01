@@ -1,18 +1,22 @@
 <template>
   <div class="navbar">
     <h1>BOOLFLIX</h1>
-    <div>
-      <label for="textf">Search your title
-      <input type="text" id="textf" name="textf">
-    </label>
-    <button>CERCA</button>
-    </div>
-  </div>
+    <form @submit.prevent = " $emit('queryChange', queryString) ">
+      <label for="s">
+        <input id="s" type="text" placeholder="cerca..." v-model="queryString">
+        <button>cerca</button>
+      </label>
+    </form>  </div>
 </template>
 
 <script>
 export default {
   name: 'HeaderPage',
+  data() {
+    return {
+      queryString: '',
+    };
+  },
 };
 </script>
 
