@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderPage @queryChange = " search "/>
-    <MainPage :arr-movie = " arrMovie "/>
+    <MainPage :arr-movie = " arrMovie " :arr-series="arrSeries"/>
   </div>
 </template>
 
@@ -22,6 +22,7 @@ export default {
       apiKey: '07f8adb8a80647ce73267621c81dedf5',
       resultsLanguage: ' it-IT ',
       arrMovie: [],
+      arrSeries: [],
     };
   },
   methods: {
@@ -40,6 +41,19 @@ export default {
         .then((responseAxios) => {
           this.arrMovie = responseAxios.data.results;
           console.log(this.arrMovie);
+        });
+      axios.get(`${this.baseApi}/search/tv`, {
+        // parametri delle variabili per le richieste dell'URL
+        params: {
+          api_key: this.apiKey,
+          query: queryString,
+          language: this.resultsLanguage,
+        },
+      })
+      // risposta di axios
+        .then((responseAxios) => {
+          this.arrSeries = responseAxios.data.results;
+          console.log(this.arrSeries);
         });
     },
   },
