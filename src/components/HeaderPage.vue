@@ -30,6 +30,7 @@ export default {
   padding: 1rem;
   width: 100vw;
   height: 5rem;
+  z-index: 10;
 }
 h1{
   color: red;
