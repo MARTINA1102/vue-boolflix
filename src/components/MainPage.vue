@@ -1,7 +1,8 @@
 <template>
-  <div class="main_page">
+  <div class="cont">
     <h2 v-if="arrMovie.lenght">Movies</h2>
-    <FixCard
+    <div class="main_page">
+      <FixCard
       v-for="objMovie in arrMovie"
       :key="objMovie.id"
       :title="objMovie.title"
@@ -11,17 +12,20 @@
       :score="convertScore(objMovie.vote_average)"
       :imgUrl="generateUrl(objMovie.poster_path)"
     />
+    </div>
     <h2 v-if="arrSeries.length">Series</h2>
-    <FixCard
-      v-for="objSerie in arrSeries"
-      :key="objSerie.id"
-      :title="objSerie.name"
-      :original-title="objSerie.original_name"
-      :language="objSerie.original_language"
-      :overview="objSerie.overview"
-      :score="convertScore(objSerie.vote_average)"
-      :imgUrl="generateUrl(objSerie.poster_path)"
-    />
+      <div class="main_page">
+        <FixCard
+        v-for="objSerie in arrSeries"
+        :key="objSerie.id"
+        :title="objSerie.name"
+        :original-title="objSerie.original_name"
+        :language="objSerie.original_language"
+        :overview="objSerie.overview"
+        :score="convertScore(objSerie.vote_average)"
+        :imgUrl="generateUrl(objSerie.poster_path)"
+      />
+    </div>
   </div>
 </template>
 
@@ -61,6 +65,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cont{
+  background-color: grey;
+}
 .main_page{
   background-color: gray;
   padding-top: 10rem;
@@ -71,12 +78,15 @@ export default {
   height: 100%;
   flex-direction: row;
   gap: 4rem;
+  padding-bottom:5rem;
 }
 li{
   color: black;
 }
 h2{
   color: black;
+  padding: 1rem;
+
 }
 
 </style>
