@@ -8,15 +8,14 @@
         >
       </div>
       <div class="back">
-        <div>{{title}}</div>
-        <div>{{originalTitle}}</div>
-        <div><lang-flag :iso="language"/></div>
-        <div>{{overview}}</div>
-        <div>{{score}}</div>
-        <font-awesome-icon v-for="i in score.score" :key="i" icon="fa-solid fa-star"
+        <div>TITOLO: {{title}}</div>
+        <div>TITOLO ORIGINALE: {{originalTitle}}</div>
+        <div>LINGUA: <lang-flag :iso="language"/></div>
+        <div>VOTO: <font-awesome-icon v-for="i in score.score" :key="i" icon="fa-solid fa-star"
         :style="{color:'yellow'}"/>
         <font-awesome-icon v-for="i in (score.maxScore - score.score)" :key="i"
-        icon="fa-regular fa-star" :style="{color:'yellow'}"/>
+        icon="fa-regular fa-star" :style="{color:'yellow'}"/></div>
+        <div>OVERVIEW: {{overview}}</div>
       </div>
     </div>
 
